@@ -1,0 +1,29 @@
+<!-- <app-task-new (addTask)='addNewTask($event)' [parentData]='tyMsg'></app-task-new> -->
+
+
+<div class="container">
+  <a [routerLink]="['new']">Add a New Task</a>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Completed</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor='let task of tasks'>
+        <td>{{task.pk}}</td>
+        <td>{{task.fields.title}}</td>
+        <td>{{task.fields.description}}</td>
+        <td *ngIf="task.fields.completed">Completed</td>
+        <td *ngIf="!task.fields.completed">Not Yet</td>
+        <td>
+          <a class='button' [routerLink]="task.pk">View</a>
+          <a class='button' href="#">Edit</a>
+          <button (click)="deleteTask(task.pk)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

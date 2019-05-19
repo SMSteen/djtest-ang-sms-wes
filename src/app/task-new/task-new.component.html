@@ -1,0 +1,58 @@
+<div class="container">
+  <form (submit)='onSubmit($event, form)' #form='ngForm'>
+    <fieldset>
+      <legend>Add a New Task</legend>
+      <!-- <p>
+        <label for="title">Title </label>
+        <input type="text" name="title">
+      </p>
+      <p>
+        <label for="description">Description </label>
+        <input type="text" task="description">
+      </p>
+      <p>
+        <label for="assigned_to">Assigned To</label>
+        <select name="assigned_to">
+          <option value="Shannon">Shannon</option>
+          <option value="Wes">Wes</option>
+          <option value="Tim">Tim</option>
+          <option value="Claire">Claire</option>
+        </select>
+      </p>
+      <input type="submit" value="Add Task"> -->
+      <div>
+        <label for="title">Name of Task</label>
+        <input type="text" name="title" required minlength="5" [(ngModel)]="newTask.title" #title="ngModel"
+          [ngModelOptions]="{updateOn: 'blur'}">
+
+        <p *ngIf="title.invalid && (title.dirty || title.touched)" class="text-error">
+          Oops, you forgot to give a name to your task.
+        </p>
+      </div>
+      <div>
+        <label for="description">Description of task</label>
+        <input type="text" name="description" required minlength="5" [(ngModel)]="newTask.description"
+          #description="ngModel" [ngModelOptions]="{updateOn: 'blur'}">
+
+        <p *ngIf="description.invalid && (description.dirty || description.touched)" class="text-error">
+          Oops, you forgot to describe the task.
+        </p>
+      </div>
+      <div>
+        <label for="assigned">Assigned To</label>
+        <select name="assigned" [(ngModel)]="newTask.assigned" #assigned="ngModel"
+          [ngModelOptions]="{updateOn: 'blur'}">
+          <option value="unassigned" selected="selected">Not Assigned</option>
+          <option value="Shannon">Shannon</option>
+          <option value="Wes">Wes</option>
+          <option value="Tim">Tim</option>
+          <option value="Claire">Claire</option>
+        </select>
+        <button type="submit" *ngIf="!form.valid" disabled>Add Task</button>
+        <button type="submit" *ngIf="form.valid">Add Task</button>
+      </div>
+    </fieldset>
+  </form>
+  <a [routerLink]="['/tasks']">Return to Task List</a>
+
+</div>

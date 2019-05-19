@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Task {{task?.pk}} Details</h1>
+  <p>Title: {{task?.fields.title}}</p>
+  <p>Description: {{task?.fields.description}}</p>
+  <p>Assigned To: {{task?.fields.assigned}}</p>
+  <ul>
+    <li *ngFor="let person of assigned">{{ person }}</li>
+  </ul>
+  <button (click)="deleteTask(task.pk)">Delete</button>
+  <p>
+    <a [routerLink]="['/tasks']">Return to Task List</a>
+  </p>
+
+</div>

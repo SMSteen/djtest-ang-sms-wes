@@ -1,0 +1,49 @@
+table {
+  width: 80%;
+  border: 1px dotted #252525;
+  border-collapse: collapse;
+}
+thead {
+  font-size: 14pt;
+}
+thead th {
+  font-weight: bold;
+  text-align: left;
+}
+tbody tr:nth-of-type(odd) {
+  background-color: rgba(41, 163, 163, 0.2);
+}
+tr:hover,
+tbody tr:nth-of-type(odd):hover {
+  background-color: rgba(20, 82, 82);
+  color: white;
+}
+th,
+td {
+  padding: 10px;
+}
+th:nth-of-type(2),
+td:nth-of-type(2) {
+  width: 20%;
+}
+th:nth-of-type(5),
+td:nth-of-type(5) {
+  width: 25%;
+}
+button,
+.button {
+  background-color: lightgray;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  color: rgb(20, 82, 82);
+  font-weight: bold;
+  text-decoration: none;
+}
+button {
+  height: 32px;
+}
+.button {
+  display: inline-block;
+  border: 2px outset buttonface;
+}
