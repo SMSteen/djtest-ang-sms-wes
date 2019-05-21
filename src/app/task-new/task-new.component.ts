@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Task } from '../task';
 import { TaskdataService } from '../taskdata.service';
+import { PeopleService } from '../people.service';
 
 @Component({
   selector: 'app-task-new',
@@ -11,12 +12,22 @@ import { TaskdataService } from '../taskdata.service';
 })
 export class TaskNewComponent implements OnInit {
   newTask: Task = new Task();
+  people = [];
   @Output() addTask = new EventEmitter<Task>();
   @Input() parentData: string;
 
-  constructor(private taskService: TaskdataService, private router: Router) {}
+  constructor(
+    private taskService: TaskdataService,
+    private peopleService: PeopleService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.peopleService.getPeople().subscribe(data => {
+      console.log('task-new.component, got the people', data);
+      this.people = data;
+    });
+  }
 
   onSubmit(event: Event, form: NgForm) {
     event.preventDefault(); // we're preventing form submission to database so we can do stuff with our form

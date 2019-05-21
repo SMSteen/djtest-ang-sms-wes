@@ -1,7 +1,7 @@
 // temporarily assign id's until such time we connect a database
-let idCounter = 11;
+// let idCounter = 11;
 export class Task {
-  id: string;
+  pk: number;
   title: string;
   description: string;
   assigned?: string[];
@@ -10,7 +10,7 @@ export class Task {
   constructor() {
     // initialze completed value to false
     this.completed = false;
-    this.id = idCounter.toString();
-    idCounter++;
+    // this.id = idCounter.toString();
+    // idCounter++;
   }
 }

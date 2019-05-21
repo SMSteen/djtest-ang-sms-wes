@@ -43,10 +43,12 @@
         <select name="assigned" [(ngModel)]="newTask.assigned" #assigned="ngModel"
           [ngModelOptions]="{updateOn: 'blur'}">
           <option value="unassigned" selected="selected">Not Assigned</option>
-          <option value="Shannon">Shannon</option>
+          <option *ngFor="let person of people" value="{{person.pk}}">{{person.fields.first_name}}
+            {{person.fields.last_name}}</option>
+          <!-- <option value="Shannon">Shannon</option>
           <option value="Wes">Wes</option>
           <option value="Tim">Tim</option>
-          <option value="Claire">Claire</option>
+          <option value="Claire">Claire</option> -->
         </select>
         <button type="submit" *ngIf="!form.valid" disabled>Add Task</button>
         <button type="submit" *ngIf="form.valid">Add Task</button>

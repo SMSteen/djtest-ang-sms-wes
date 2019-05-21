@@ -36,7 +36,7 @@ export class TaskListComponent implements OnInit {
           'task-list.component, successfully deleted task',
           deletedTask
         );
-        this.tasks = this.tasks.filter(task => deletedTask.id !== task.id);
+        this.tasks = this.tasks.filter(task => deletedTask[0].pk !== task.pk);
       },
       error => {
         console.log(error);

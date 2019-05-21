@@ -12,6 +12,7 @@ import { TASKS } from './tasks-data';
 import { TaskNewComponent } from './task-new/task-new.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PeopleService } from './people.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     // }),
     FormsModule
   ],
-  providers: [PokemonService],
+  providers: [PokemonService, PeopleService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
